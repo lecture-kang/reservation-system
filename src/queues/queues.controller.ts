@@ -16,11 +16,6 @@ import { CreateQueueTicketDto } from './dto/create-queue-ticket.dto';
 export class QueuesController {
   constructor(private readonly queueService: QueuesService) {}
 
-  // @Post()
-  // create(@Body() createQueueDto: CreateQueueDto) {
-  //   return this.queuesService.create(createQueueDto);
-  // }
-
   @Post()
   async issueTicket(@Body() createQueueTicketDto: CreateQueueTicketDto) {
     return this.queueService.issueTicket(createQueueTicketDto);

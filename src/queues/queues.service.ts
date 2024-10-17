@@ -52,24 +52,4 @@ export class QueuesService {
       estimatedWaitTime: ticket.estimatedWaitTime,
     };
   }
-
-  create(createQueueDto: CreateQueueDto) {
-    return 'This action adds a new queue';
-  }
-
-  findAll() {
-    return `This action returns all queues`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} queue`;
-  }
-
-  update(id: number, updateQueueDto: UpdateQueueDto) {
-    return `This action updates a #${id} queue`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} queue`;
-  }
 }
