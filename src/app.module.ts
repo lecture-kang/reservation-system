@@ -8,6 +8,7 @@ import { SeatReservation } from './seats/entities/seat_reservation.entity';
 import { QueueTicket } from './queues/entities/queue_ticket.entity';
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './core/database/database.module';
+import { UserModule } from './modules/user/user.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { DatabaseModule } from './core/database/database.module';
     DatabaseModule,
     QueuesModule,
     SeatsModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
