@@ -2,19 +2,24 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { QueuesModule } from './queues/queues.module';
+import { SeatsModule } from './seats/seats.module';
+import { SeatReservation } from './seats/entities/seat_reservation.entity';
+import { QueueTicket } from './queues/entities/queue_ticket.entity';
+import { ConfigModule } from '@nestjs/config';
+import { DatabaseModule } from './core/database/database.module';
+import { UserModule } from './modules/user/user.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '0316',
-      database: 'sys',
-      entities: [],
-      synchronize: true,
+    ConfigModule.forRoot({
+      isGlobal: true, // .env 파일을 읽기 위한 설정
+      envFilePath: '.env',
     }),
+    DatabaseModule,
+    QueuesModule,
+    SeatsModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
